@@ -74,7 +74,7 @@
     height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 40%;
     border: 3px solid rgba(255,255,255,0.12);
     filter: grayscale(15%);
   }
@@ -506,7 +506,7 @@
       <div class="title">Software Engineer</div>
       <h1>Rick Wen <span>溫瑞強</span></h1>
       <p class="summary">
-        具備串流影音系統、高併發後端架構、AI 協作開發經驗的全端工程師。曾在 Synology Surveillance Team 從零打造 Qt Client 產品，獨立負責 SmartSearch 等核心 APP；後於博弈新創帶領團隊以 Go 建構萬人級遊戲伺服器。近期專注於 AI 協作開發工具鏈，實踐「Preview 優先於 Review」的開發方法論。
+        串流影音、高併發後端、AI 工具鏈。Synology Surveillance 從零打造 Qt Client；博弈新創以 Go 建構萬人級伺服器，100+ 遊戲上線運營。近期專注 AI 協作開發，實踐 Preview > Review 方法論。
       </p>
       <div class="hero-contact">
         <a href="mailto:rickwen1126@gmail.com">rickwen1126@gmail.com</a>
@@ -546,8 +546,6 @@
       <span class="tag">Claude Agent SDK</span>
       <span class="tag">Copilot SDK/CLI</span>
       <span class="tag">RabbitMQ</span>
-      <span class="tag">Docker</span>
-      <span class="tag">Git</span>
       <span class="tag">GCP</span>
       <span class="tag">Vercel</span>
     </div>
@@ -566,23 +564,16 @@
 
     <div class="exp-phase">RD 時期</div>
     <ul class="exp-list">
-      <li>參與 Qt Client 從零開發，負責 Windows / Mac 雙平台</li>
-      <li><strong>獨立開發 SmartSearch APP</strong> — 整合 LiveView grid、Recording 播放、Analytics 影像分析三大模組，設計 Analytics Controller 介面解決跨 streaming 來源的耦合問題</li>
-      <li>開發 IP Speaker APP（UI/UX + 前端整合）</li>
-      <li>LiveView Analytics porting、H.265 支援、Camera APP / Recording APP 優化</li>
-      <li>解決 Qt Player deep copy 效能問題 — frame 複製導致 disk hit 飆高、多路影像播放效能劣化一倍，定位 root cause 並修復</li>
-      <li>解決 Mac UI 移植問題，以 Qt fusion mode 一行修復跨平台 UI 相容性</li>
-      <li>Player 底層 frame copy / memory leak 系列問題排查與修復</li>
+      <li>從零打造 Qt Client（Windows / Mac），負責多個核心 APP 開發</li>
+      <li><strong>獨立開發 SmartSearch APP</strong> — 設計跨 streaming 來源的解耦介面，整合 LiveView、Recording、Analytics 三大模組</li>
+      <li>定位並修復 Qt Player frame deep copy 效能瓶頸 — 多路播放效能劣化一倍</li>
     </ul>
 
     <div class="exp-phase">RD PM 時期</div>
     <ul class="exp-list">
-      <li>共構時期重構 login 流程 — 整合多個分散 API 為單一 client 專用 API，加入 rule validation 守門機制確保上游 API 變更時自動偵測</li>
-      <li>主導 Home Mode 產品設計</li>
-      <li>負責 DVA 計劃前期規劃（NAS + GPU + TensorFlow）</li>
-      <li>與國外專利公司談判 tripwire 授權合約，識別隱藏條款（任何安裝 Surveillance 的機器皆需授權費），成功擋下不利合約</li>
-      <li>監控大展產品演講與駐展</li>
-      <li>多項 APP 的 UI/UX 設計參與</li>
+      <li>重構 login 流程 — 整合分散 API 為單一 client API，加入 rule validation 自動偵測上游變更</li>
+      <li>主導 Home Mode 產品設計、DVA 前期規劃（NAS + GPU + TensorFlow）</li>
+      <li>談判 tripwire 專利授權，識別隱藏的 per-device 授權條款，成功擋下不利合約</li>
     </ul>
   </div>
 
@@ -592,10 +583,9 @@
       <div class="role">共同創辦人 / Tech Lead</div>
     </div>
     <ul class="exp-list">
-      <li>3 人團隊、3 個月打造遊戲伺服器，達馬尼拉博弈展覽參展等級</li>
-      <li>以 Go 開發 — State Machine 管理遊戲流程 + Factory Pattern 註冊遊戲邏輯 + WebSocket 長連線（含斷線重連、狀態回復）</li>
-      <li>單 process 於 GCP 最低規格機器承載 8,000–10,000 同時在線</li>
-      <li>團隊從 3 人擴展至 10+ 人，架構設計良好使新進工程師只需專注遊戲邏輯開發</li>
+      <li>3 人團隊、3 個月從零打造遊戲伺服器平台，<strong>100+ 款遊戲上線運營 3–4 年</strong></li>
+      <li>Go 架構設計 — State Machine + Factory Pattern + WebSocket 長連線（斷線重連、狀態回復）</li>
+      <li>單 process 承載 8,000–10,000 concurrent，團隊從 3 人擴展至 10+</li>
     </ul>
   </div>
 </section>
@@ -607,43 +597,34 @@
 
     <div class="project-card">
       <h3>Code Viewer</h3>
-      <div class="desc">Mobile-first 程式碼瀏覽工具，解決「用手機 AI 開發時無法有效 code review」的問題。</div>
-      <div class="tech">code-server &middot; Hono &middot; React &middot; Shiki &middot; VSCode Extension API</div>
+      <div class="desc">Mobile-first code review 工具，走 VSCode Extension API 取得 code intelligence</div>
+      <div class="tech">code-server &middot; Hono &middot; React &middot; Shiki</div>
       <ul>
-        <li>所有 code intelligence 走 VSCode Extension API，不自建 parser</li>
-        <li>架構選型前先做 6 項可行性實驗，全數通過後才進入 spec</li>
-        <li>AI 時代 review 看邊界、看 interface、看架構方向</li>
+        <li>選型前完成 6 項 API 可行性實驗，全數通過才進 spec</li>
       </ul>
     </div>
 
     <div class="project-card">
       <h3>NotebookLM Controller</h3>
-      <div class="desc">MCP Server，自動化控制 Google NotebookLM，作為 AI 開發時的 single source of truth。</div>
-      <div class="tech">TypeScript &middot; Claude Agent SDK &middot; Puppeteer &middot; MCP SDK</div>
+      <div class="desc">MCP Server — 自動化控制 NotebookLM 作為 AI 開發的 source of truth</div>
+      <div class="tech">Claude Agent SDK &middot; Puppeteer &middot; MCP SDK</div>
       <ul>
-        <li>原文書 scan 進 NotebookLM，降低 AI 幻覺</li>
-        <li>NetworkGate permit-based 流量控制</li>
-        <li>序列化操作避免狀態衝突</li>
+        <li>NetworkGate permit-based 流量控制、序列化操作避免狀態衝突</li>
       </ul>
     </div>
 
     <div class="project-card">
       <h3>倉儲管理 Line Bot Agent</h3>
-      <div class="desc">Line Bot 智能倉儲管理系統，用自然語言操作庫存。</div>
-      <div class="tech">TypeScript &middot; Copilot SDK &middot; Line Messaging API</div>
-      <ul>
-        <li>Channel / Process / Dispatch 分離架構</li>
-        <li>自然語言指令轉換為結構化倉儲操作</li>
-      </ul>
+      <div class="desc">自然語言驅動的庫存管理系統，Channel / Process / Dispatch 分離架構</div>
+      <div class="tech">Copilot SDK &middot; Line Messaging API</div>
     </div>
 
     <div class="project-card">
-      <h3>信益油漆企業形象網站</h3>
-      <div class="desc">從零建置企業官網，2 天內完成開發並上線。<br><span style="font-size:11px;color:var(--text-light)">shinyipaint.com.tw</span></div>
+      <h3>信益油漆企業官網</h3>
+      <div class="desc">2 天完成開發並上線的企業形象網站</div>
       <div class="tech">Next.js 16 &middot; Tailwind CSS &middot; shadcn/ui &middot; Vercel</div>
       <ul>
-        <li>SSG 靜態生成，CDN 分散存取</li>
-        <li>首次前端開發，展現 AI 協作下的快速學習能力</li>
+        <li><a href="https://shinyipaint.com.tw" target="_blank" style="color:var(--text-muted);font-size:12px">shinyipaint.com.tw</a></li>
       </ul>
     </div>
 
@@ -672,25 +653,6 @@
     </div>
   </div>
   <p class="method-motto">"Preview > Review"</p>
-</section>
-
-<!-- ═══ GROWTH ═══ -->
-<section>
-  <div class="section-header"><h2>持續精進方向</h2></div>
-  <div class="growth-list">
-    <div class="growth-item">
-      <h4>CI Gate 自動化</h4>
-      <p>建立自動化品質門檻，確保每次 commit 通過靜態分析與測試</p>
-    </div>
-    <div class="growth-item">
-      <h4>Web Vitals 基準</h4>
-      <p>為前端專案建立 Lighthouse / Core Web Vitals 效能最低標準</p>
-    </div>
-    <div class="growth-item">
-      <h4>Agent 治理標準化</h4>
-      <p>AI Agent 的 guardrail、審計與可觀測性</p>
-    </div>
-  </div>
 </section>
 
 <!-- ═══ EDUCATION ═══ -->
