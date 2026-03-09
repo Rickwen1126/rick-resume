@@ -523,7 +523,7 @@
       <div class="title">Software Engineer</div>
       <h1>Rick Wen <span>溫瑞強</span></h1>
       <p class="summary">
-        串流影音、高併發後端、AI 工具鏈。Synology Surveillance 從零打造 Qt Client；博弈新創以 Go 建構萬人級伺服器，100+ 遊戲上線運營。近期專注 AI 協作開發，實踐 Preview > Review 方法論。
+        從 Synology 串流影音系統到博弈新創萬人級 Go 伺服器（100+ 遊戲上線運營），持續在不同技術領域深耕學習。近期專注 AI 協作開發，以規格驅動開發（SDD）為核心，實踐 Preview > Review 方法論，自建 MCP Server 與 AI Agent 工具鏈。樂於分享技術、擁抱新技術棧的挑戰。
       </p>
       <div class="hero-contact">
         <a href="mailto:rickwen1126@gmail.com">rickwen1126@gmail.com</a>
@@ -533,6 +533,66 @@
 </header>
 
 <main class="main">
+
+<!-- ═══ METHODOLOGY ═══ -->
+<section>
+  <div class="section-header"><h2>AI 協作開發</h2></div>
+
+  <p style="font-size:14px;color:var(--text);margin-bottom:24px;line-height:1.75">
+    核心觀念：<strong>Preview > Review</strong> — 在 AI 時代，開發前的深度設計與架構選型（SDD），比事後逐行 code review 更有價值。
+  </p>
+
+  <div class="exp-story">
+    <h4>開發工具鏈</h4>
+    <p>以 Claude Code CLI 作為主要開發環境，搭配自建的 MCP Server 生態系（NotebookLM Controller 用於查詢技術文獻降低幻覺、Skill 系統管理可復用的開發流程）。使用 Copilot SDK 建構 Line Bot Agent，實踐 AI-native 的應用架構。所有近期專案皆在此工具鏈下完成。</p>
+  </div>
+
+  <div class="exp-story">
+    <h4>開發流程</h4>
+    <p>每個功能先與 AI 深度討論需求、搜尋開源方案、產出完整 spec 後才動手實作（SDD）。開發中分 phase 迭代，每段完成即以 CodeTour 標記重點做 review，聚焦界面、架構方向、安全性與測試覆蓋，控制在 10 分鐘內。學習上以 AI 拆解開源專案架構 — 分為架構層、邊界 / interface 層、功能層三層理解，快速建立新領域的技術視野。</p>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section>
+  <div class="section-header"><h2>近期專案</h2></div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3>Code Viewer</h3>
+      <div class="desc">Mobile-first code review 工具，走 VSCode Extension API 取得 code intelligence</div>
+      <div class="tech">code-server &middot; Hono &middot; React &middot; Shiki</div>
+      <ul>
+        <li>選型前完成 6 項 API 可行性實驗，全數通過才進 spec</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>NotebookLM Controller</h3>
+      <div class="desc">MCP Server — 自動化控制 NotebookLM 作為 AI 開發的 source of truth</div>
+      <div class="tech">Claude Agent SDK &middot; Puppeteer &middot; MCP SDK</div>
+      <ul>
+        <li>NetworkGate permit-based 流量控制、序列化操作避免狀態衝突</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>倉儲管理 Line Bot Agent</h3>
+      <div class="desc">自然語言驅動的庫存管理系統，Channel / Process / Dispatch 分離架構</div>
+      <div class="tech">Copilot SDK &middot; Line Messaging API</div>
+    </div>
+
+    <div class="project-card">
+      <h3>信益油漆企業官網</h3>
+      <div class="desc">2 天完成開發並上線的企業形象網站</div>
+      <div class="tech">Next.js 16 &middot; Tailwind CSS &middot; shadcn/ui &middot; Vercel</div>
+      <ul>
+        <li><a href="https://shinyipaint.com.tw" target="_blank" style="color:var(--text-muted);font-size:12px">shinyipaint.com.tw</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
 
 <!-- ═══ TECH STACK ═══ -->
 <section>
@@ -634,66 +694,6 @@
       <h4>平行擴展 — 100+ 遊戲、3–4 年穩定運營</h4>
       <p>平台最終承載超過 100 款遊戲持續運營 3–4 年，團隊從 3 人擴展至 10 人以上。架構設計的可擴展性讓新進工程師只需專注遊戲邏輯開發，無需理解底層通訊與狀態管理，大幅降低上手門檻。</p>
     </div>
-  </div>
-</section>
-
-<!-- ═══ PROJECTS ═══ -->
-<section>
-  <div class="section-header"><h2>近期專案</h2></div>
-  <div class="projects-grid">
-
-    <div class="project-card">
-      <h3>Code Viewer</h3>
-      <div class="desc">Mobile-first code review 工具，走 VSCode Extension API 取得 code intelligence</div>
-      <div class="tech">code-server &middot; Hono &middot; React &middot; Shiki</div>
-      <ul>
-        <li>選型前完成 6 項 API 可行性實驗，全數通過才進 spec</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <h3>NotebookLM Controller</h3>
-      <div class="desc">MCP Server — 自動化控制 NotebookLM 作為 AI 開發的 source of truth</div>
-      <div class="tech">Claude Agent SDK &middot; Puppeteer &middot; MCP SDK</div>
-      <ul>
-        <li>NetworkGate permit-based 流量控制、序列化操作避免狀態衝突</li>
-      </ul>
-    </div>
-
-    <div class="project-card">
-      <h3>倉儲管理 Line Bot Agent</h3>
-      <div class="desc">自然語言驅動的庫存管理系統，Channel / Process / Dispatch 分離架構</div>
-      <div class="tech">Copilot SDK &middot; Line Messaging API</div>
-    </div>
-
-    <div class="project-card">
-      <h3>信益油漆企業官網</h3>
-      <div class="desc">2 天完成開發並上線的企業形象網站</div>
-      <div class="tech">Next.js 16 &middot; Tailwind CSS &middot; shadcn/ui &middot; Vercel</div>
-      <ul>
-        <li><a href="https://shinyipaint.com.tw" target="_blank" style="color:var(--text-muted);font-size:12px">shinyipaint.com.tw</a></li>
-      </ul>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ METHODOLOGY ═══ -->
-<section>
-  <div class="section-header"><h2>AI 協作開發</h2></div>
-
-  <p style="font-size:14px;color:var(--text);margin-bottom:24px;line-height:1.75">
-    核心觀念：<strong>Preview > Review</strong> — 在 AI 時代，開發前的深度設計與架構選型，比事後逐行 code review 更有價值。
-  </p>
-
-  <div class="exp-story">
-    <h4>開發工具鏈</h4>
-    <p>以 Claude Code CLI 作為主要開發環境，搭配自建的 MCP Server 生態系（NotebookLM Controller 用於查詢技術文獻降低幻覺、Skill 系統管理可復用的開發流程）。使用 Copilot SDK 建構 Line Bot Agent，實踐 AI-native 的應用架構。所有近期專案皆在此工具鏈下完成。</p>
-  </div>
-
-  <div class="exp-story">
-    <h4>開發流程</h4>
-    <p>每個功能先與 AI 深度討論需求、搜尋開源方案、產出完整 spec 後才動手實作。開發中分 phase 迭代，每段完成即以 CodeTour 標記重點做 review，聚焦界面、架構方向與安全性，控制在 10 分鐘內。學習上以 AI 拆解開源專案架構 — 分為架構層、邊界 / interface 層、功能層三層理解，快速建立新領域的技術視野。</p>
   </div>
 </section>
 
