@@ -556,6 +556,7 @@
     <div class="stack-value">
       <span class="tag">Qt</span>
       <span class="tag">FFmpeg</span>
+      <span class="tag">OpenCL</span>
       <span class="tag">React</span>
       <span class="tag">Next.js</span>
       <span class="tag">Hono</span>
@@ -576,26 +577,36 @@
   <div class="exp-block">
     <div class="exp-header">
       <h3>Synology — Surveillance Station Team</h3>
-      <div class="role">Software Engineer → RD PM</div>
+      <div class="role">Software Engineer → RD PM → Group Leader</div>
     </div>
 
     <p style="font-size:14px;color:var(--text);margin-bottom:24px;line-height:1.75">
-      參與 Surveillance Station Qt Client 從零開發（Windows / Mac 雙平台），歷經 RD 到 RD PM，負責多個核心 APP 的設計與開發。
+      從零參與 Surveillance Station Qt Client 開發（Windows / Mac 雙平台），歷經 RD、PM、Group Leader 三個階段，從個人開發者成長為技術領導。
     </p>
 
     <div class="exp-story">
-      <h4>SmartSearch APP — 獨立設計與開發</h4>
-      <p>SmartSearch 需要同時整合 LiveView grid、Recording 播放、Analytics 影像分析三個模組，每個模組各自有不同的 streaming 來源與生命週期。設計了 Analytics Controller 介面作為統一抽象層，解決跨 streaming 來源的耦合問題，讓三個模組能獨立演進而不互相干擾。這是我在 Synology 獨立從架構設計到實作完成的最大規模 APP。</p>
+      <h4>GPU Motion Detection 系統 — 技術領導</h4>
+      <p>升任 Group Leader 後領導開發 GPU Motion Detection 系統，將影像動態偵測從 CPU 遷移至 GPU 運算，改善整體偵測效果與效能。同時開發 PIR 校正 Motion Detection 系統，提升偵測準確度。</p>
     </div>
 
     <div class="exp-story">
-      <h4>Qt Player 效能瓶頸修復</h4>
-      <p>多路影像同時播放時效能劣化近一倍，團隊長期無法定位原因。追蹤後發現 root cause 是 frame 在 pipeline 中被 deep copy，導致 disk hit 飆高。修復底層 frame 傳遞機制後，多路播放效能恢復正常，同時解決了伴隨的 memory leak 問題。</p>
+      <h4>獨立交付 — SmartSearch APP & IP Speaker APP</h4>
+      <p>SmartSearch 需要整合 LiveView grid、Recording 播放、Analytics 影像分析三個模組，各自有不同的 streaming 來源與生命週期。設計 Analytics Controller 介面作為統一抽象層，解決跨 streaming 來源的耦合問題，讓三個模組能獨立演進。IP Speaker 同樣獨立完成從 UI/UX 設計到前端整合的全程開發。兩個 APP 皆為獨立從架構到實作全程負責。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>串流與影像處理核心</h4>
+      <p>負責 LiveView 多路串流即時切換系統，讓同一攝影機的多路串流能即時接入並切換播放。從 FFmpeg 原始碼移植 H.265 codec 支援。開發 NVR 專用 CLI 轉碼工具。實作 CGI 到 WebSocket 的協定串接，將傳統 request-response 介面升級為即時雙向通訊。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>關鍵問題排除</h4>
+      <p>多路影像同時播放時效能劣化近一倍，團隊長期無法定位原因。追蹤發現 root cause 是 frame 在 pipeline 中被 deep copy 導致 disk hit 飆高，修復後效能恢復正常並解決伴隨的 memory leak。另一個阻塞整體進度的問題是 Mac 平台 UI 移植，最終以 Qt fusion mode 一行修復跨平台相容性，解除團隊的進度瓶頸。</p>
     </div>
 
     <div class="exp-story">
       <h4>產品規劃與商務談判</h4>
-      <p>轉任 RD PM 後主導 Home Mode 產品設計，負責 DVA 計劃前期規劃（NAS + GPU + TensorFlow 深度學習影像分析）。在 tripwire 專利授權談判中，識別出合約隱藏的 per-device 授權條款 — 任何安裝 Surveillance Station 的機器皆需支付授權費，成功擋下這份對公司極為不利的合約。</p>
+      <p>PM 時期主導 Home Mode 產品設計，負責 DVA 前期規劃（NAS + GPU + TensorFlow 深度學習影像分析）。在 tripwire 專利授權談判中，識別出合約隱藏的 per-device 授權條款 — 任何安裝 Surveillance Station 的機器皆需支付授權費，成功擋下這份對公司極為不利的合約。</p>
     </div>
   </div>
 
@@ -690,6 +701,9 @@
       <div class="school">成功大學</div>
       <div class="dept">電腦通訊工程研究所</div>
       <div class="degree">碩士</div>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:8px;line-height:1.6;text-align:left">
+        研究影像去霧演算法，發表於 International Journal of Computers and Applications、澳門國際會議，並獲國科會計畫補助。
+      </p>
     </div>
     <div class="edu-item">
       <div class="school">台灣科技大學</div>
