@@ -616,13 +616,22 @@
       <div class="role">共同創辦人 / Tech Lead</div>
     </div>
 
+    <p style="font-size:14px;color:var(--text);margin-bottom:24px;line-height:1.75">
+      以共同創辦人身份主導技術架構，帶領團隊以 Go 從零打造遊戲伺服器平台。
+    </p>
+
     <div class="exp-story">
-      <h4>從零到百款遊戲的伺服器平台</h4>
-      <p>3 人核心團隊，3 個月內以 Go 從零打造遊戲伺服器平台，首版即達馬尼拉博弈展覽參展等級。架構設計以 State Machine 管理遊戲流程、Factory Pattern 註冊遊戲邏輯、WebSocket 長連線處理斷線重連與狀態回復。單一 process 在 GCP 最低規格機器上即可承載 8,000–10,000 同時在線玩家。</p>
+      <h4>馬尼拉參展 — 3 人 3 個月從零到 production</h4>
+      <p>3 人核心團隊在 3 個月內完成遊戲伺服器平台的首版開發，直接達到馬尼拉博弈展覽的參展等級。架構設計以 State Machine 管理遊戲流程、Factory Pattern 註冊遊戲邏輯、WebSocket 長連線處理斷線重連與狀態回復。單一 process 在 GCP 最低規格機器上即可承載 8,000–10,000 同時在線玩家。</p>
     </div>
 
     <div class="exp-story">
-      <h4>架構驗證：100+ 遊戲、3–4 年穩定運營</h4>
+      <h4>Slot Game 轉型 — 半年內上線</h4>
+      <p>參展後依市場需求轉型開發 Slot Game 產品線，半年內完成從遊戲邏輯到上線運營的全流程。驗證了架構的適應性 — 同一套底層平台能承載不同類型的遊戲品類。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>平行擴展 — 100+ 遊戲、3–4 年穩定運營</h4>
       <p>平台最終承載超過 100 款遊戲持續運營 3–4 年，團隊從 3 人擴展至 10 人以上。架構設計的可擴展性讓新進工程師只需專注遊戲邏輯開發，無需理解底層通訊與狀態管理，大幅降低上手門檻。</p>
     </div>
   </div>
@@ -671,26 +680,21 @@
 
 <!-- ═══ METHODOLOGY ═══ -->
 <section>
-  <div class="section-header"><h2>AI 協作方法論</h2></div>
-  <div class="method-grid">
-    <div class="method-item">
-      <div class="phase">Before</div>
-      <p>與 AI 深度討論需求、搜尋開源方案、產出清楚的 spec 再動手</p>
-    </div>
-    <div class="method-item">
-      <div class="phase">During</div>
-      <p>迭代式開發，分 phase 完成一段即 review 一段</p>
-    </div>
-    <div class="method-item">
-      <div class="phase">Review</div>
-      <p>CodeTour 標記重點，聚焦界面 / 架構 / 安全性，10 分鐘內</p>
-    </div>
-    <div class="method-item">
-      <div class="phase">Learn</div>
-      <p>AI 拆解開源專案架構（架構、邊界、功能三層），快速拓展技術視野</p>
-    </div>
+  <div class="section-header"><h2>AI 協作開發</h2></div>
+
+  <p style="font-size:14px;color:var(--text);margin-bottom:24px;line-height:1.75">
+    核心觀念：<strong>Preview > Review</strong> — 在 AI 時代，開發前的深度設計與架構選型，比事後逐行 code review 更有價值。
+  </p>
+
+  <div class="exp-story">
+    <h4>開發工具鏈</h4>
+    <p>以 Claude Code CLI 作為主要開發環境，搭配自建的 MCP Server 生態系（NotebookLM Controller 用於查詢技術文獻降低幻覺、Skill 系統管理可復用的開發流程）。使用 Copilot SDK 建構 Line Bot Agent，實踐 AI-native 的應用架構。所有近期專案皆在此工具鏈下完成。</p>
   </div>
-  <p class="method-motto">"Preview > Review"</p>
+
+  <div class="exp-story">
+    <h4>開發流程</h4>
+    <p>每個功能先與 AI 深度討論需求、搜尋開源方案、產出完整 spec 後才動手實作。開發中分 phase 迭代，每段完成即以 CodeTour 標記重點做 review，聚焦界面、架構方向與安全性，控制在 10 分鐘內。學習上以 AI 拆解開源專案架構 — 分為架構層、邊界 / interface 層、功能層三層理解，快速建立新領域的技術視野。</p>
+  </div>
 </section>
 
 <!-- ═══ EDUCATION ═══ -->
