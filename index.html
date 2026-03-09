@@ -272,6 +272,23 @@
     color: var(--dark);
   }
 
+  .exp-story {
+    margin-bottom: 20px;
+  }
+
+  .exp-story h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .exp-story p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
   /* ── Projects ── */
   .projects-grid {
     display: grid;
@@ -562,19 +579,29 @@
       <div class="role">Software Engineer → RD PM</div>
     </div>
 
-    <div class="exp-phase">RD 時期</div>
-    <ul class="exp-list">
-      <li>從零打造 Qt Client（Windows / Mac），負責多個核心 APP 開發</li>
-      <li><strong>獨立開發 SmartSearch APP</strong> — 設計跨 streaming 來源的解耦介面，整合 LiveView、Recording、Analytics 三大模組</li>
-      <li>定位並修復 Qt Player frame deep copy 效能瓶頸 — 多路播放效能劣化一倍</li>
-    </ul>
+    <p style="font-size:14px;color:var(--text);margin-bottom:24px;line-height:1.75">
+      參與 Surveillance Station Qt Client 從零開發（Windows / Mac 雙平台），歷經 RD 到 RD PM，負責多個核心 APP 的設計與開發。
+    </p>
 
-    <div class="exp-phase">RD PM 時期</div>
-    <ul class="exp-list">
-      <li>重構 login 流程 — 整合分散 API 為單一 client API，加入 rule validation 自動偵測上游變更</li>
-      <li>主導 Home Mode 產品設計、DVA 前期規劃（NAS + GPU + TensorFlow）</li>
-      <li>談判 tripwire 專利授權，識別隱藏的 per-device 授權條款，成功擋下不利合約</li>
-    </ul>
+    <div class="exp-story">
+      <h4>SmartSearch APP — 獨立設計與開發</h4>
+      <p>SmartSearch 需要同時整合 LiveView grid、Recording 播放、Analytics 影像分析三個模組，每個模組各自有不同的 streaming 來源與生命週期。設計了 Analytics Controller 介面作為統一抽象層，解決跨 streaming 來源的耦合問題，讓三個模組能獨立演進而不互相干擾。這是我在 Synology 獨立從架構設計到實作完成的最大規模 APP。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>Qt Player 效能瓶頸修復</h4>
+      <p>多路影像同時播放時效能劣化近一倍，團隊長期無法定位原因。追蹤後發現 root cause 是 frame 在 pipeline 中被 deep copy，導致 disk hit 飆高。修復底層 frame 傳遞機制後，多路播放效能恢復正常，同時解決了伴隨的 memory leak 問題。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>Login 流程重構</h4>
+      <p>Surveillance Station 與 DSM 共構時期，login 涉及多個分散的後端 API，client 端需自行處理複雜的呼叫順序與錯誤處理。將這些分散 API 整合為單一 client 專用 API，並加入 rule validation 守門機制 — 當上游 API 發生變更時能自動偵測並報警，避免 client 端 silent failure。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>產品規劃與商務談判</h4>
+      <p>轉任 RD PM 後主導 Home Mode 產品設計，負責 DVA 計劃前期規劃（NAS + GPU + TensorFlow 深度學習影像分析）。在 tripwire 專利授權談判中，識別出合約隱藏的 per-device 授權條款 — 任何安裝 Surveillance Station 的機器皆需支付授權費，成功擋下這份對公司極為不利的合約。</p>
+    </div>
   </div>
 
   <div class="exp-block">
@@ -582,11 +609,16 @@
       <h3>博弈新創公司</h3>
       <div class="role">共同創辦人 / Tech Lead</div>
     </div>
-    <ul class="exp-list">
-      <li>3 人團隊、3 個月從零打造遊戲伺服器平台，<strong>100+ 款遊戲上線運營 3–4 年</strong></li>
-      <li>Go 架構設計 — State Machine + Factory Pattern + WebSocket 長連線（斷線重連、狀態回復）</li>
-      <li>單 process 承載 8,000–10,000 concurrent，團隊從 3 人擴展至 10+</li>
-    </ul>
+
+    <div class="exp-story">
+      <h4>從零到百款遊戲的伺服器平台</h4>
+      <p>3 人核心團隊，3 個月內以 Go 從零打造遊戲伺服器平台，首版即達馬尼拉博弈展覽參展等級。架構設計以 State Machine 管理遊戲流程、Factory Pattern 註冊遊戲邏輯、WebSocket 長連線處理斷線重連與狀態回復。單一 process 在 GCP 最低規格機器上即可承載 8,000–10,000 同時在線玩家。</p>
+    </div>
+
+    <div class="exp-story">
+      <h4>架構驗證：100+ 遊戲、3–4 年穩定運營</h4>
+      <p>平台最終承載超過 100 款遊戲持續運營 3–4 年，團隊從 3 人擴展至 10 人以上。架構設計的可擴展性讓新進工程師只需專注遊戲邏輯開發，無需理解底層通訊與狀態管理，大幅降低上手門檻。</p>
+    </div>
   </div>
 </section>
 
