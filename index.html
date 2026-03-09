@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rick Wen — Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #faf9f6;
+    --bg-alt: #f0eeea;
+    --text: #2c2c2c;
+    --text-muted: #6b6b6b;
+    --text-light: #999;
+    --accent: #b8860b;
+    --accent-soft: #d4a84420;
+    --dark: #1a1a1a;
+    --border: #e0ddd8;
+    --serif: 'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+    --sans: 'Source Sans 3', 'Noto Sans TC', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 400;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--dark);
+    color: #fff;
+    padding: 80px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+  }
+
+  .hero-photo img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 3px solid rgba(255,255,255,0.12);
+    filter: grayscale(15%);
+  }
+
+  .hero-text h1 {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+
+  .hero-text h1 span {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    margin-left: 12px;
+    letter-spacing: 0;
+  }
+
+  .hero-text .title {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
+
+  .hero-text .summary {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+    max-width: 520px;
+  }
+
+  .hero-contact {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-contact a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    transition: all 0.2s;
+  }
+
+  .hero-contact a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* ── Main ── */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── Section ── */
+  section {
+    padding: 48px 0 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .section-header h2 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+  }
+
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── Tech Stack ── */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 12px 24px;
+    font-size: 14px;
+  }
+
+  .stack-label {
+    font-weight: 500;
+    color: var(--text-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-top: 2px;
+  }
+
+  .stack-value {
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .stack-value .tag {
+    display: inline-block;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    margin: 2px 3px 2px 0;
+    white-space: nowrap;
+  }
+
+  /* ── Experience ── */
+  .exp-block {
+    margin-bottom: 36px;
+  }
+
+  .exp-block:last-child { margin-bottom: 0; }
+
+  .exp-header {
+    margin-bottom: 16px;
+  }
+
+  .exp-header h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .exp-header .role {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .exp-phase {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin: 20px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed var(--border);
+    display: inline-block;
+  }
+
+  .exp-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .exp-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .exp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  .exp-list li strong {
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  /* ── Projects ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .project-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transform: translateY(-2px);
+  }
+
+  .project-card h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .project-card .desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .project-card .tech {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  .project-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .project-card ul li {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+  }
+
+  .project-card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--text-light);
+    font-size: 11px;
+  }
+
+  /* ── Methodology ── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .method-item {
+    text-align: center;
+    padding: 24px 16px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+  }
+
+  .method-item .phase {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .method-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  .method-motto {
+    text-align: center;
+    margin-top: 28px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Growth ── */
+  .growth-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+
+  .growth-item {
+    padding: 20px 24px;
+    border-left: 2px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .growth-item h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .growth-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ── Education ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .edu-item {
+    text-align: center;
+    padding: 24px;
+  }
+
+  .edu-item .school {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .edu-item .dept {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .edu-item .degree {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ── Footer ── */
+  footer {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .hero { padding: 50px 0 40px; }
+    .hero-inner { flex-direction: column; text-align: center; gap: 28px; }
+    .hero-text h1 { font-size: 32px; }
+    .hero-text h1 span { display: block; margin: 6px 0 0; }
+    .hero-text .summary { max-width: none; }
+    .main { padding: 0 24px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .method-grid { grid-template-columns: 1fr 1fr; }
+    .growth-list { grid-template-columns: 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .stack-grid { grid-template-columns: 1fr; gap: 4px 0; }
+    .stack-label { margin-top: 12px; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    .hero { background: #fff; color: var(--dark); padding: 30px 0; }
+    .hero-text .title { color: var(--accent); }
+    .hero-text .summary { color: var(--text-muted); }
+    .hero-contact { color: var(--text-muted); }
+    .hero-contact a { color: var(--text); }
+    .project-card { break-inside: avoid; }
+    section { padding: 24px 0 20px; }
+  }
+
+  /* ── Animation ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-photo, .hero-text { animation: fadeUp 0.7s ease both; }
+  .hero-text { animation-delay: 0.12s; }
+
+  section { animation: fadeUp 0.5s ease both; }
+  section:nth-child(1) { animation-delay: 0.15s; }
+  section:nth-child(2) { animation-delay: 0.2s; }
+  section:nth-child(3) { animation-delay: 0.25s; }
+  section:nth-child(4) { animation-delay: 0.3s; }
+  section:nth-child(5) { animation-delay: 0.35s; }
+  section:nth-child(6) { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="photo.jpg" alt="Rick Wen">
+    </div>
+    <div class="hero-text">
+      <div class="title">Software Engineer</div>
+      <h1>Rick Wen <span>溫瑞強</span></h1>
+      <p class="summary">
+        具備串流影音系統、高併發後端架構、AI 協作開發經驗的全端工程師。曾在 Synology Surveillance Team 從零打造 Qt Client 產品，獨立負責 SmartSearch 等核心 APP；後於博弈新創帶領團隊以 Go 建構萬人級遊戲伺服器。近期專注於 AI 協作開發工具鏈，實踐「Preview 優先於 Review」的開發方法論。
+      </p>
+      <div class="hero-contact">
+        <a href="mailto:rickwen1126@gmail.com">rickwen1126@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+<!-- ═══ TECH STACK ═══ -->
+<section>
+  <div class="section-header"><h2>技術棧</h2></div>
+  <div class="stack-grid">
+    <div class="stack-label">語言</div>
+    <div class="stack-value">
+      <span class="tag">C++</span>
+      <span class="tag">Go</span>
+      <span class="tag">TypeScript</span>
+      <span class="tag">Python</span>
+    </div>
+    <div class="stack-label">領域</div>
+    <div class="stack-value">
+      <span class="tag">串流影音系統</span>
+      <span class="tag">高併發後端</span>
+      <span class="tag">AI 協作開發</span>
+      <span class="tag">全端開發</span>
+    </div>
+    <div class="stack-label">框架 / 工具</div>
+    <div class="stack-value">
+      <span class="tag">Qt</span>
+      <span class="tag">FFmpeg</span>
+      <span class="tag">React</span>
+      <span class="tag">Next.js</span>
+      <span class="tag">Hono</span>
+      <span class="tag">MCP SDK</span>
+      <span class="tag">Claude Agent SDK</span>
+      <span class="tag">Copilot SDK/CLI</span>
+      <span class="tag">RabbitMQ</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Git</span>
+      <span class="tag">GCP</span>
+      <span class="tag">Vercel</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section>
+  <div class="section-header"><h2>工作經歷</h2></div>
+
+  <div class="exp-block">
+    <div class="exp-header">
+      <h3>Synology — Surveillance Station Team</h3>
+      <div class="role">Software Engineer → RD PM</div>
+    </div>
+
+    <div class="exp-phase">RD 時期</div>
+    <ul class="exp-list">
+      <li>參與 Qt Client 從零開發，負責 Windows / Mac 雙平台</li>
+      <li><strong>獨立開發 SmartSearch APP</strong> — 整合 LiveView grid、Recording 播放、Analytics 影像分析三大模組，設計 Analytics Controller 介面解決跨 streaming 來源的耦合問題</li>
+      <li>開發 IP Speaker APP（UI/UX + 前端整合）</li>
+      <li>LiveView Analytics porting、H.265 支援、Camera APP / Recording APP 優化</li>
+      <li>解決 Qt Player deep copy 效能問題 — frame 複製導致 disk hit 飆高、多路影像播放效能劣化一倍，定位 root cause 並修復</li>
+      <li>解決 Mac UI 移植問題，以 Qt fusion mode 一行修復跨平台 UI 相容性</li>
+      <li>Player 底層 frame copy / memory leak 系列問題排查與修復</li>
+    </ul>
+
+    <div class="exp-phase">RD PM 時期</div>
+    <ul class="exp-list">
+      <li>共構時期重構 login 流程 — 整合多個分散 API 為單一 client 專用 API，加入 rule validation 守門機制確保上游 API 變更時自動偵測</li>
+      <li>主導 Home Mode 產品設計</li>
+      <li>負責 DVA 計劃前期規劃（NAS + GPU + TensorFlow）</li>
+      <li>與國外專利公司談判 tripwire 授權合約，識別隱藏條款（任何安裝 Surveillance 的機器皆需授權費），成功擋下不利合約</li>
+      <li>監控大展產品演講與駐展</li>
+      <li>多項 APP 的 UI/UX 設計參與</li>
+    </ul>
+  </div>
+
+  <div class="exp-block">
+    <div class="exp-header">
+      <h3>博弈新創公司</h3>
+      <div class="role">共同創辦人 / Tech Lead</div>
+    </div>
+    <ul class="exp-list">
+      <li>3 人團隊、3 個月打造遊戲伺服器，達馬尼拉博弈展覽參展等級</li>
+      <li>以 Go 開發 — State Machine 管理遊戲流程 + Factory Pattern 註冊遊戲邏輯 + WebSocket 長連線（含斷線重連、狀態回復）</li>
+      <li>單 process 於 GCP 最低規格機器承載 8,000–10,000 同時在線</li>
+      <li>團隊從 3 人擴展至 10+ 人，架構設計良好使新進工程師只需專注遊戲邏輯開發</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section>
+  <div class="section-header"><h2>近期專案</h2></div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <h3>Code Viewer</h3>
+      <div class="desc">Mobile-first 程式碼瀏覽工具，解決「用手機 AI 開發時無法有效 code review」的問題。</div>
+      <div class="tech">code-server &middot; Hono &middot; React &middot; Shiki &middot; VSCode Extension API</div>
+      <ul>
+        <li>所有 code intelligence 走 VSCode Extension API，不自建 parser</li>
+        <li>架構選型前先做 6 項可行性實驗，全數通過後才進入 spec</li>
+        <li>AI 時代 review 看邊界、看 interface、看架構方向</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>NotebookLM Controller</h3>
+      <div class="desc">MCP Server，自動化控制 Google NotebookLM，作為 AI 開發時的 single source of truth。</div>
+      <div class="tech">TypeScript &middot; Claude Agent SDK &middot; Puppeteer &middot; MCP SDK</div>
+      <ul>
+        <li>原文書 scan 進 NotebookLM，降低 AI 幻覺</li>
+        <li>NetworkGate permit-based 流量控制</li>
+        <li>序列化操作避免狀態衝突</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>倉儲管理 Line Bot Agent</h3>
+      <div class="desc">Line Bot 智能倉儲管理系統，用自然語言操作庫存。</div>
+      <div class="tech">TypeScript &middot; Copilot SDK &middot; Line Messaging API</div>
+      <ul>
+        <li>Channel / Process / Dispatch 分離架構</li>
+        <li>自然語言指令轉換為結構化倉儲操作</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h3>信益油漆企業形象網站</h3>
+      <div class="desc">從零建置企業官網，2 天內完成開發並上線。<br><span style="font-size:11px;color:var(--text-light)">shinyipaint.com.tw</span></div>
+      <div class="tech">Next.js 16 &middot; Tailwind CSS &middot; shadcn/ui &middot; Vercel</div>
+      <ul>
+        <li>SSG 靜態生成，CDN 分散存取</li>
+        <li>首次前端開發，展現 AI 協作下的快速學習能力</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ METHODOLOGY ═══ -->
+<section>
+  <div class="section-header"><h2>AI 協作方法論</h2></div>
+  <div class="method-grid">
+    <div class="method-item">
+      <div class="phase">Before</div>
+      <p>與 AI 深度討論需求、搜尋開源方案、產出清楚的 spec 再動手</p>
+    </div>
+    <div class="method-item">
+      <div class="phase">During</div>
+      <p>迭代式開發，分 phase 完成一段即 review 一段</p>
+    </div>
+    <div class="method-item">
+      <div class="phase">Review</div>
+      <p>CodeTour 標記重點，聚焦界面 / 架構 / 安全性，10 分鐘內</p>
+    </div>
+    <div class="method-item">
+      <div class="phase">Learn</div>
+      <p>AI 拆解開源專案架構（架構、邊界、功能三層），快速拓展技術視野</p>
+    </div>
+  </div>
+  <p class="method-motto">"Preview > Review"</p>
+</section>
+
+<!-- ═══ GROWTH ═══ -->
+<section>
+  <div class="section-header"><h2>持續精進方向</h2></div>
+  <div class="growth-list">
+    <div class="growth-item">
+      <h4>CI Gate 自動化</h4>
+      <p>建立自動化品質門檻，確保每次 commit 通過靜態分析與測試</p>
+    </div>
+    <div class="growth-item">
+      <h4>Web Vitals 基準</h4>
+      <p>為前端專案建立 Lighthouse / Core Web Vitals 效能最低標準</p>
+    </div>
+    <div class="growth-item">
+      <h4>Agent 治理標準化</h4>
+      <p>AI Agent 的 guardrail、審計與可觀測性</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section>
+  <div class="section-header"><h2>學歷</h2></div>
+  <div class="edu-grid">
+    <div class="edu-item">
+      <div class="school">成功大學</div>
+      <div class="dept">電腦通訊工程研究所</div>
+      <div class="degree">碩士</div>
+    </div>
+    <div class="edu-item">
+      <div class="school">台灣科技大學</div>
+      <div class="dept">資訊工程系</div>
+    </div>
+    <div class="edu-item">
+      <div class="school">大安高工</div>
+      <div class="dept">資訊科</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  &copy; 2026 Rick Wen
+</footer>
+
+</body>
+</html>
