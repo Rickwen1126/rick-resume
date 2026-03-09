@@ -67,19 +67,16 @@
 
   .hero-photo {
     flex-shrink: 0;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba(255,255,255,0.12);
-    background: #1a1a1a;
   }
 
   .hero-photo img {
-    width: 100%;
-    height: auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+    border: 3px solid rgba(255,255,255,0.12);
     filter: grayscale(15%);
-    transform: scale(0.96) translateY(-30%);
   }
 
   .hero-text h1 {
