@@ -644,19 +644,23 @@
 
     <div class="project-card">
       <h3>Code Viewer</h3>
-      <div class="desc">Mobile-first code review 工具，走 VSCode Extension API 取得 code intelligence</div>
-      <div class="tech">code-server &middot; Hono &middot; React &middot; Shiki</div>
+      <div class="desc">Desktop VS Code 的 Mobile 延伸 — 把 VS Code 的所有能力搬到手機，觸控優化呈現</div>
+      <div class="tech">VS Code Extension &middot; Hono Relay &middot; React PWA &middot; Shiki</div>
       <ul>
+        <li>三層架構：Extension (WS client) → Relay Backend → Mobile PWA</li>
+        <li>鏡像 Copilot：Chat 接續、Edit Review、Tool Approval</li>
         <li>選型前完成 6 項 API 可行性實驗，全數通過才進 spec</li>
       </ul>
     </div>
 
     <div class="project-card">
-      <h3>NotebookLM Controller</h3>
+      <h3><a href="https://github.com/Rickwen1126/notebooklm-controller" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--accent)">NotebookLM Controller</a></h3>
       <div class="desc">MCP Server — 自動化控制 NotebookLM 作為 AI 開發的 source of truth</div>
-      <div class="tech">Claude Agent SDK &middot; Puppeteer &middot; MCP SDK</div>
+      <div class="tech">Copilot SDK &middot; Puppeteer (CDP) &middot; MCP SDK</div>
       <ul>
-        <li>NetworkGate permit-based 流量控制、序列化操作避免狀態衝突</li>
+        <li>G2 Script-first：happy path 零 LLM token，失敗時 Recovery LLM + repair log 自我修復</li>
+        <li>NetworkGate permit-based 流量控制、Tab Pool affinity-based 多筆記本並行</li>
+        <li>688 unit tests + 8-phase E2E（ISO Browser 獨立 DOM 驗證）</li>
       </ul>
     </div>
 
