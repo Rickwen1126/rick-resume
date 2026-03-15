@@ -643,12 +643,13 @@
   <div class="projects-grid">
 
     <div class="project-card">
-      <h3>Code Viewer</h3>
+      <h3><a href="https://github.com/Rickwen1126/code-viewer" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--accent)">Code Viewer</a></h3>
       <div class="desc">Desktop VS Code 的 Mobile 延伸 — 把 VS Code 的所有能力搬到手機，觸控優化呈現</div>
       <div class="tech">VS Code Extension &middot; Hono Relay &middot; React PWA &middot; Shiki</div>
       <ul>
-        <li>三層架構：Extension (WS client) → Relay Backend → Mobile PWA</li>
+        <li>三層 WS 架構：Extension → Hono Relay → React Mobile PWA</li>
         <li>鏡像 Copilot：Chat 接續、Edit Review、Tool Approval</li>
+        <li>所有 code intelligence 來自 Desktop LSP，不自建 parser</li>
         <li>選型前完成 6 項 API 可行性實驗，全數通過才進 spec</li>
       </ul>
     </div>
